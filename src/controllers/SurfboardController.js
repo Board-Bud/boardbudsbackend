@@ -11,7 +11,7 @@ router.get("/all", async (request, response) => {
 });
 
 // Find one surfboard by its ID
-router.get("/one/id/:id", async (request, response) => {
+router.get("/one/id/:_id", async (request, response) => {
 	let result = null;
 
 	response.json({
