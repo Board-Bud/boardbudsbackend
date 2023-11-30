@@ -30,7 +30,7 @@ const SurfboardSchema = new Schema({
     }
 })
 
-const User = mongoose.model('Surfboard', SurfboardSchemaSchema);
+const Surfboard = mongoose.model('Surfboard', SurfboardSchema);
 
 module.exports = {
     Surfboard
