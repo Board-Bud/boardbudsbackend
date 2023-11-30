@@ -9,6 +9,9 @@ app.get("/", (request, response) => {
     });
 });
 
+const SurfboardRouter = require('./controllers/SurfboardController');
+app.use('/surfboards', SurfboardRouter);
+
 module.exports = {
     app
 }
