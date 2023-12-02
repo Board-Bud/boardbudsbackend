@@ -16,6 +16,12 @@ app.get("/", (request, response) => {
 const SurfboardRouter = require('./controllers/SurfboardController');
 app.use('/surfboards', SurfboardRouter);
 
+const userController = require('./controllers/UserController');
+app.use("/users", userController);
+
+// const BookingController = require('./controllers/BookingController');
+// app.use("/bookings", BookingController);
+
 module.exports = {
     app
 }
