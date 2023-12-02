@@ -9,7 +9,7 @@ databaseConnect().then(async () => {
 
     let newSurfBoard = new Surfboard({
         name: "Mick Fanning Beastie 9 Foot",
-        type: "Foam Surfboard",
+        type: "Foamie",
         description: "This a Mick Fanning Beastie 9 Foot. This board is a create startng point for a beginner surfer due to its size and boyancy",
         hirePrice: "100",
         photo: ["https://google.com"] // URL to file storage, this is an example

@@ -2,8 +2,9 @@ const express = require('express');
 const { Surfboard } = require('../models/SurfboardModel');
 const router = express.Router();
 
+// Get all surfboards in the DB
 router.get("/all", async (request, response) => {
-    let result = await Surfboard.find({});
+    let result = await Surfboard.find.catch(error =>{return error});
 
     response.json({
         surfboards: result
@@ -11,8 +12,8 @@ router.get("/all", async (request, response) => {
 });
 
 // Find one surfboard by its ID
-router.get("/one/id/:_id", async (request, response) => {
-	let result = null;
+router.get("/one/id/:id", async (request, response) => {
+	let result = await Surfboard.find.catch(error =>{return error});
 
 	response.json({
 		surfboard: result
@@ -20,10 +21,9 @@ router.get("/one/id/:_id", async (request, response) => {
 
 });
 
-// Find one surfbaord by its name 
-// localhost:3000/surfbaords/one/name/MickFanningBeastie
+// Find one surfboard by its name 
 router.get("/multiple/name/:nameToSearchFor", async (request, response) => {
-	let result = null;
+	let result = await Surfboard.find.catch(error =>{return error});
 
 	response.json({
 		surfboard: result
@@ -31,8 +31,9 @@ router.get("/multiple/name/:nameToSearchFor", async (request, response) => {
 
 });
 
+// Find one or more surfboards by their type
 router.get("/multiple/type/:typeToFilterBy", async (request, response) => {
-	let result = null;
+	let result = await Surfboard.find.catch(error =>{return error});
 
 	response.json({
 		surfboard: result
@@ -42,16 +43,10 @@ router.get("/multiple/type/:typeToFilterBy", async (request, response) => {
 
 
 // Create a new surfbaord in the DB
-// POST localhost:3000/cats/
+// POST localhost:3000/surfboards/
 router.post("/", async (request, response) => {
 
-	// Error handling via try-catch
-	// let result = null;
-	// try {
-	// 	result = await Surfboard.create(request.body);
-	// } catch (error) {
-	// 	result = error;
-	// }
+	
 
 	// Error handling via Promise.catch()
 	let result = await Surfboard.create(request.body).catch(error => {return error});
@@ -65,10 +60,8 @@ router.post("/", async (request, response) => {
 
 // Update an existing surfboard in the DB.
 // Find one surfboard by its ID, and modify that surfboard. 
-// Patch is for whatever properties are provided,
-// does not overwrite or remove any unmentioned properties of the surfboard
 router.patch("/:id", async (request, response) => {
-	let result = null;
+	let result = await Surfboard.find({});
 
 	response.json({
 		surfboard: result
@@ -78,8 +71,8 @@ router.patch("/:id", async (request, response) => {
 
 // Find one surfboard by its ID,
 // and delete it from the DB.
-router.delete("/:id", async (request, response) => {
-	let result = null;
+router.delete("/delete/:id", async (request, response) => {
+	let result = await Surfboard.findById(request.body).catch(error => {return error});
 
 	response.json({
 		surfboard: result

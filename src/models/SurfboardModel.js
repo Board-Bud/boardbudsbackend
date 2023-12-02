@@ -6,7 +6,7 @@ const SurfboardSchema = new Schema({
     name: {
         type: String,
         required: true,
-        unique: true
+        unique: false
     },
     type: {
         type: String,
