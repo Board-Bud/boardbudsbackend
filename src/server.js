@@ -5,13 +5,13 @@ const express = require('express');
 // make a server instance
 const app = express();
 
-// const cors = require('cors');
-// const corsOptions = {
-// 	//			frontend localhost,  frontend deployed
-// 	origin: ["http://localhost:3000/","http://localhost:3000", "https://someDeployedWebsite.com"],
-// 	optionsSuccessStatus: 200
-// }
-// app.use(cors(corsOptions));
+const cors = require('cors');
+const corsOptions = {
+	//			frontend localhost,  frontend deployed
+	origin: ["http://localhost:3001/","http://localhost:3001", "https://someDeployedWebsite.com"],
+	optionsSuccessStatus: 200
+}
+app.use(cors(corsOptions));
 
 app.use(express.json());
 
