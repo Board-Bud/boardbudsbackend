@@ -24,8 +24,8 @@ databaseConnect().then(async () => {
     let newUser = await User.create({
         name: "Nick",
         email: "nick@email.com",
-        username: "Nick94",
-        password: "password123",
+        username: "nick94",
+        password: "password1",
         isAdmin: false
     });
     
