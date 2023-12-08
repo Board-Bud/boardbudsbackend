@@ -21,12 +21,6 @@ app.get("/", (request, response) => {
     });
 });
 
-const SurfboardRouter = require('./routes/surfboards');
-app.use('/surfboards', SurfboardRouter);
-
-const userController = require('./routes/users');
-app.use("/users", userController);
-
 
 module.exports = {
     app

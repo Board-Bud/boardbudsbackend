@@ -1,74 +1,23 @@
 const express = require('express');
-const { Surfboard } = require ("../models/SurfboardModel");
+const { createSurfboard, updateSurfboard, deleteSurfboard, getAllSurfboards, getSurfboard } = require('../controllers/SurfboardController');
 
 const router = express.Router();
 
 
 // CREATE
-
-router.post("/", async (req, res)=>{
-
-    const newSurfboard = new Surfboard(req.body)
-
-    try{
-        const savedSurfboard = await newSurfboard.save()
-        res.status(200).json(savedSurfboard)
-    }catch(err){
-        res.status(500).json(err)
-    };
-});
+router.post("/", createSurfboard);
 
 // UPDATE
-
-router.put("/:id", async (req, res) => {
-    try{
-        const updatedSurfboard = await Surfboard.findByIdAndUpdate (
-            req.params.id, 
-            { $set: req.body},
-            { new: true}
-        );
-        res.status(200).json(updatedSurfboard);
-    } catch (err) {
-        res.status(500).json(err);
-    }
-});
+router.put("/:id",updateSurfboard);
 
 // DELETE
-
-router.delete("/:id", async (req, res) => {
-    try{
-        const deleteSurfboard = await Surfboard.findByIdAndDelete (
-            req.params.id,
-        );
-        res.status(200).json("Surfboard has been deleted");
-    } catch (err) {
-        res.status(500).json(err);
-    }
-});
+router.delete("/:id", deleteSurfboard);
 
 // GET
-
-router.get("/:id", async (req, res) => {
-    try{
-        const surfboard = await Surfboard.findById (
-            req.params.id
-        );
-        res.status(200).json(surfboard);
-    } catch (err) {
-        res.status(500).json(err);
-    }
-});
+router.get("/:id", getSurfboard);
 
 // GET ALL
-
-router.get("/", async (req, res) => {
-    try{
-        const surfboards = await Surfboard.find();
-        res.status(200).json(surfboards);
-    } catch (err) {
-        res.status(500).json(err);
-    }
-});
+router.get("/", getAllSurfboards);
 
 
 
