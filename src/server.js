@@ -21,14 +21,12 @@ app.get("/", (request, response) => {
     });
 });
 
-const SurfboardRouter = require('./controllers/SurfboardController');
+const SurfboardRouter = require('./routes/surfboards');
 app.use('/surfboards', SurfboardRouter);
 
-const userController = require('./controllers/UserController');
+const userController = require('./routes/users');
 app.use("/users", userController);
 
-// const BookingController = require('./controllers/BookingController');
-// app.use("/bookings", BookingController);
 
 module.exports = {
     app
