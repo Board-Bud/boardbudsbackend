@@ -3,10 +3,11 @@ const bcrypt = require('bcryptjs');
 
 
 const UserSchema = new mongoose.Schema ({
-    name: {
+
+    username: {
         type: String,
         required: true,
-        unique: false,
+        unique: true,
         uniqueCaseInsensitive: true
 
     },
@@ -16,13 +17,6 @@ const UserSchema = new mongoose.Schema ({
         unique: true,
         uniqueCaseInsensitive: true
     },
-    username: {
-        type: String,
-        required: true,
-        unique: true,
-        uniqueCaseInsensitive: true
-
-    },
     password: {
         type: String,
         required: true,
@@ -31,9 +25,10 @@ const UserSchema = new mongoose.Schema ({
     isAdmin: {
         type: Boolean,
         required: true,
+        default: false,
         unique: false
-    }
-});
+    },
+},{ timestamps : true });
 
 // Use instance.save() when modifying a user's password
 // to trigger this pre-hook

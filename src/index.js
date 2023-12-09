@@ -11,11 +11,20 @@ app.listen(PORT, async () => {
 	console.log("Server running!");
 });
 
+const cookieParser = require('cookie-parser');
+app.use(cookieParser());
+
 const SurfboardRouter = require('./routes/surfboards');
 app.use('/surfboards', SurfboardRouter);
 
-const UserRouter = require('./routes/users');
-app.use("/users", UserRouter);
+const UserRouter = require('./routes/user');
+app.use("/user", UserRouter);
+
+const AuthRouter = require('./routes/auth');
+
+app.use("/auth", AuthRouter);
+
+
 
 
 // Error Handling Middleware
