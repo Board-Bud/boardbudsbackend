@@ -1,5 +1,5 @@
 const express = require('express');
-const { createSurfboard, updateSurfboard, deleteSurfboard, getAllSurfboards, getSurfboard } = require('../controllers/SurfboardController');
+const { createSurfboard, updateSurfboard, deleteSurfboard, getAllSurfboards, getSurfboard } = require('../controllers/surfboardController');
 const { verifyToken, verifyUser, verifyAdmin } = require('../utils/verifyToken')
 
 const router = express.Router();
