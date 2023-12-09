@@ -18,7 +18,7 @@ const SurfboardRouter = require('./routes/surfboards');
 app.use('/surfboards', SurfboardRouter);
 
 const UserRouter = require('./routes/user');
-app.use("/user", UserRouter);
+app.use("/users", UserRouter);
 
 const AuthRouter = require('./routes/auth');
 
