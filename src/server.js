@@ -9,7 +9,7 @@ const app = express();
 const cors = require('cors');
 const corsOptions = {
 	//			frontend localhost,  frontend deployed
-	origin: ["http://localhost:3000/","https://localhost:3000", "http://localhost:3001/","https://localhost:3001", process.env.DEPLOYED_SITE],
+	origin: ["http://localhost:3000/","https://localhost:3000", "http://localhost:3001/","https://localhost:3001", "https://board-bud-c9fcbefcb666.herokuapp.com/"],
 	optionsSuccessStatus: 200,
 
 }
