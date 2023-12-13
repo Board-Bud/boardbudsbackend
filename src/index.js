@@ -4,7 +4,7 @@ const { databaseConnect } = require('./database');
 const { app } = require('./server');
 
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.DB_URI || 3000;
 
 app.listen(PORT, async () => {
 	await databaseConnect();
