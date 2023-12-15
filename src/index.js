@@ -1,4 +1,5 @@
 require('dotenv').config();
+const express = require('express');
 const cookieParser = require('cookie-parser');
 const SurfboardRouter = require('./routes/surfboards');
 const UserRouter = require('./routes/user');
@@ -25,13 +26,6 @@ app.get("/", (request, response) => {
     response.json({
         message:"BoardBud"
     });
-});
-
-
-let localWebClientPath = path.join(process.env.userStorageDir, 'localWebClient');
-app.use(express.static(localWebClientPath));
-app.get('*', (request, response) => {
-	response.sendFile('index.html', {root: localWebClientPath});
 });
 
 
