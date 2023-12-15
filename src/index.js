@@ -27,10 +27,12 @@ app.get("/", (request, response) => {
     });
 });
 
-app.get("*", (req, res) => {
-	res.sendFile(path.resolve(__dirname, "build", "index.html"));
-  });
 
+let localWebClientPath = path.join(process.env.userStorageDir, 'localWebClient');
+app.use(express.static(localWebClientPath));
+app.get('*', (request, response) => {
+	response.sendFile('index.html', {root: localWebClientPath});
+});
 
 
 
