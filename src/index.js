@@ -27,9 +27,11 @@ app.get("/", (request, response) => {
     });
 });
 
-// app.get('/', function(req, res){
-//     res.send('index.html', { root: boardbud-frontend + "/public/index.html" } );
-// });
+app.get("*", (req, res) => {
+	res.sendFile(path.resolve(__dirname, "build", "index.html"));
+  });
+
+
 
 
 // Error Handling Middleware
