@@ -21,7 +21,15 @@ app.use('/surfboards', SurfboardRouter);
 app.use("/users", UserRouter);
 app.use("/auth", AuthRouter);
 
+// app.get("/", (request, response) => {
+//     response.json({
+//         message:"BoardBud"
+//     });
+// });
 
+app.get('/', function(req, res){
+    res.send('index.html', { root: boardbud-frontend + "/public/index.html" } );
+});
 
 
 // Error Handling Middleware
