@@ -17,11 +17,11 @@ app.use(cors(corsOptions));
 
 app.use(express.json());
 
-app.get("/", (request, response) => {
-    response.json({
-        message:"BoardBud"
-    });
-});
+// app.get("/auth/login", (request, response) => {
+//     response.json({
+//         message:"BoardBud"
+//     });
+// });
 
 
 module.exports = {
