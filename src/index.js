@@ -1,4 +1,4 @@
-require('dotenv').config();
+const dotenv = require('dotenv')
 const express = require('express');
 const mongoose = require('mongoose');
 const cookieParser = require('cookie-parser');
@@ -8,6 +8,7 @@ const AuthRouter = require('./routes/auth');
 const cors = require('cors');
 
 const app = express();
+dotenv.config();
 
 const connect = async () => {
 	try {
