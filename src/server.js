@@ -14,14 +14,12 @@ const corsOptions = {
 
 }
 app.use(cors(corsOptions));
-
 app.use(express.json());
-
-// app.get("/auth/login", (request, response) => {
-//     response.json({
-//         message:"BoardBud"
-//     });
-// });
+app.get("/auth/login", (request, response) => {
+    response.json({
+        message:"BoardBud"
+    });
+});
 
 
 module.exports = {
