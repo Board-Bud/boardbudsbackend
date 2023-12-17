@@ -28,6 +28,7 @@ try{
 const login = async (req,res,next) => {
     try{
         const user = await User.findOne({username:req.body.username})
+        console.log(user)
         if(!user) return next(createError(404,"User not found"))
         
         const isPasswordCorrect = await bcrypt.compare(
